@@ -62,3 +62,5 @@ module CHMtoPDF
 
   module_function :unpack_chm, :get_hhc_file_path, :assemble_contents_list, :remove_unnecessary_elements, :create_pdf, :convert
 end
+
+# vim: set textwidth=80 colorcolumn=80:
