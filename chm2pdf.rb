@@ -42,7 +42,7 @@ module CHMtoPDF
   end
 
   def create_pdf contents, output
-    %x{ `which htmldoc` --webpage --header . --footer . --outfile #{output} #{contents.join ' '} }
+    %x{ `which htmldoc` --webpage --bottom 18.7mm --header . --footer . --outfile #{output} #{contents.join ' '} }
   end
 
   def convert input, output
