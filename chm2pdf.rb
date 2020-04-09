@@ -28,10 +28,16 @@ module CHMtoPDF
             n.parent.remove
           end
 
-          # Remove the book data (cover miniature, title, ISBN, etc.) from the overview page
-          # and from the TOC page of O'Reilly books
+          # Remove the book data (cover miniature, title, ISBN, etc.) from the
+          # overview page and from the TOC page of O'Reilly books
           d.css('body table:nth-child(3)').each do |n|
             n.remove if File.basename(f.path).eql? 'main.html' or File.basename(f.path).eql? 'toc.html'
+          end
+
+          # Remove the "Table of Contents" and "Index" links block from the top
+          # of the overview page and the TOC page
+          d.css('td[class="aTopMenu"]').each do |n|
+            n.parent.parent.remove if File.basename(f.path).eql? 'main.html' or File.basename(f.path).eql? 'toc.html'
           end
 
           f.truncate 0
